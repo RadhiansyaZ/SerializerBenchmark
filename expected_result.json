@@ -1,0 +1,52 @@
+{
+    "discussion_results": [
+      {
+        "orders": 1,
+        "username": "FilmLover123",
+        "comment": "For me, the best comedy movie of all time is 'Airplane!' It's a classic slapstick comedy that never fails to make me laugh. The jokes are ridiculous and over-the-top, but that's what makes it so funny!",
+        "reply_count": 2,
+        "replies": [
+          {
+            "username": "FunnyBone",
+            "comment": "I agree with you, 'Airplane!' is definitely one of the best comedy movies ever made. The puns and wordplay in that movie are clever and hilarious. Plus, the performances by Leslie Nielsen and the rest of the cast are comedic gold!"
+          },
+          {
+            "username": "ComedyFanatic",
+            "comment": "'Airplane!' is great, but I think 'Monty Python and the Holy Grail' is the best comedy movie. The British humor and absurdity in that film are unparalleled. It's filled with iconic scenes and quotable lines that never get old!"
+          }
+        ]
+      },
+      {
+        "orders": 2,
+        "username": "LaughsForDays",
+        "comment": "I have to disagree with both of you. In my opinion, the funniest comedy movie is 'Anchorman: The Legend of Ron Burgundy'. Will Ferrell's performance as Ron Burgundy is hilarious, and the script is filled with memorable one-liners and outrageous situations.",
+        "reply_count": 2,
+        "replies": [
+          {
+            "username": "ComedyEnthusiast",
+            "comment": "'Anchorman' is definitely a hilarious movie, but I think 'Superbad' takes the crown for the funniest comedy. The awkward and relatable characters, combined with the outrageous situations they find themselves in, make it a comedy masterpiece."
+          },
+          {
+            "username": "Jokester123",
+            "comment": "While 'Anchorman' and 'Superbad' are funny, I have to go with 'Bridesmaids'. It's a comedy that appeals to both men and women, and the performances by Kristen Wiig, Maya Rudolph, and Melissa McCarthy are absolutely hilarious!"
+          }
+        ]
+      },
+      {
+        "orders": 3,
+        "username": "FunnyFilmNerd",
+        "comment": "I can't believe no one has mentioned 'The Hangover' yet. It's one of the funniest comedy movies ever made! The chemistry between the cast is perfect, and the outrageous events that unfold during the bachelor party in Las Vegas are laugh-out-loud funny.",
+        "reply_count": 2,
+        "replies": [
+          {
+            "username": "ComedyAficionado",
+            "comment": "'The Hangover' is definitely a classic comedy, but I think 'Ghostbusters' deserves a mention too. The combination of comedy and supernatural elements in that movie is genius, and the performances by Bill Murray, Dan Aykroyd, and Harold Ramis are iconic."
+          },
+          {
+            "username": "FunnyMovieBuff",
+            "comment": "I have to give a shoutout to 'Old School'. The comedic performances by Luke Wilson, Will Ferrell, and Vince Vaughn are top-notch, and the movie is filled with hilarious moments. It's a comedy that never fails to make me laugh!"
+          }
+        ]
+      }
+    ]
+  }
