@@ -1,0 +1,54 @@
+########## CLI Test ##########
+go test -benchtime=1s -bench=. -benchmem
+
+------- Attempt 1 -------
+goos: darwin
+goarch: arm64
+pkg: benchmark
+BenchmarkSerialize-8   	    3364	    343962 ns/op	   55685 B/op	     475 allocs/op
+PASS
+ok  	benchmark	1.625s
+
+------- Attempt 2 -------
+goos: darwin
+goarch: arm64
+pkg: benchmark
+BenchmarkSerialize-8   	    4090	    287422 ns/op	   55690 B/op	     475 allocs/op
+PASS
+ok  	benchmark	2.539s
+
+------- Attempt 3 -------
+goos: darwin
+goarch: arm64
+pkg: benchmark
+BenchmarkSerialize-8   	    3900	    298927 ns/op	   55721 B/op	     475 allocs/op
+PASS
+ok  	benchmark	2.458s
+
+------- Attempt 4 -------
+goos: darwin
+goarch: arm64
+pkg: benchmark
+BenchmarkSerialize-8   	    3894	    286646 ns/op	   55705 B/op	     475 allocs/op
+PASS
+ok  	benchmark	2.752s
+
+------- Attempt 5 -------
+goos: darwin
+goarch: arm64
+pkg: benchmark
+BenchmarkSerialize-8   	    3501	    293742 ns/op	   55723 B/op	     475 allocs/op
+PASS
+ok  	benchmark	1.412s
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+duration: 13.906083ms
+------- Attempt 2 -------
+duration: 11.24675ms
+------- Attempt 3 -------
+duration: 24.580792ms
+------- Attempt 4 -------
+duration: 8.023084ms
+------- Attempt 5 -------
+duration: 7.747917ms
