@@ -1,42 +1,35 @@
+++++++++++ 1st Testing PC Specs ++++++++++
+OS: MacOS Sonoma
+CPU: M2
+RAM: 8GB
+
 ########## CLI Test ##########
 go test -benchtime=1s -bench=. -benchmem
-
-------- Attempt 1 -------
 goos: darwin
 goarch: arm64
 pkg: benchmark
+
+------- Attempt 1 -------
 BenchmarkSerialize-8   	    3364	    343962 ns/op	   55685 B/op	     475 allocs/op
 PASS
 ok  	benchmark	1.625s
 
 ------- Attempt 2 -------
-goos: darwin
-goarch: arm64
-pkg: benchmark
 BenchmarkSerialize-8   	    4090	    287422 ns/op	   55690 B/op	     475 allocs/op
 PASS
 ok  	benchmark	2.539s
 
 ------- Attempt 3 -------
-goos: darwin
-goarch: arm64
-pkg: benchmark
 BenchmarkSerialize-8   	    3900	    298927 ns/op	   55721 B/op	     475 allocs/op
 PASS
 ok  	benchmark	2.458s
 
 ------- Attempt 4 -------
-goos: darwin
-goarch: arm64
-pkg: benchmark
 BenchmarkSerialize-8   	    3894	    286646 ns/op	   55705 B/op	     475 allocs/op
 PASS
 ok  	benchmark	2.752s
 
 ------- Attempt 5 -------
-goos: darwin
-goarch: arm64
-pkg: benchmark
 BenchmarkSerialize-8   	    3501	    293742 ns/op	   55723 B/op	     475 allocs/op
 PASS
 ok  	benchmark	1.412s
@@ -52,3 +45,55 @@ duration: 24.580792ms
 duration: 8.023084ms
 ------- Attempt 5 -------
 duration: 7.747917ms
+
+
+
+++++++++++ 2nd Testing PC Specs ++++++++++
+OS: windows 11
+cpu: AMD Ryzen 7 5700G with Radeon Graphics
+RAM: 32GB
+
+########## CLI Test ##########
+go test -benchtime=1s -bench=BenchmarkSerialize -benchmem
+goos: windows
+goarch: amd64
+pkg: benchmark
+cpu: AMD Ryzen 7 5700G with Radeon Graphics
+
+------- Attempt 1 -------
+BenchmarkSerialize-16               1934            540683 ns/op           55146 B/op        418 allocs/op
+PASS
+ok      benchmark       1.827s
+
+------- Attempt 2 -------
+BenchmarkSerialize-16               2215            521529 ns/op           55199 B/op        418 allocs/op
+PASS
+ok      benchmark       1.895s
+
+------- Attempt 3 -------
+BenchmarkSerialize-16               2347            509133 ns/op           55123 B/op        418 allocs/op
+PASS
+ok      benchmark       1.933s
+
+------- Attempt 4 -------
+BenchmarkSerialize-16               2234            511530 ns/op           55193 B/op        418 allocs/op
+PASS
+ok      benchmark       1.879s
+
+------- Attempt 5 -------
+BenchmarkSerialize-16               2277            512756 ns/op           55091 B/op        418 allocs/op
+PASS
+ok      benchmark       1.916s
+
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+duration: 313.9283ms
+------- Attempt 2 -------
+duration: 307.2511ms
+------- Attempt 3 -------
+duration: 306.8465ms
+------- Attempt 4 -------
+duration: 307.4543ms
+------- Attempt 5 -------
+duration: 315.121ms
