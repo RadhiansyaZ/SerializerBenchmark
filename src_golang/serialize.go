@@ -40,9 +40,6 @@ func Serialize() []byte {
 	}
 
 	// Modifying the API response
-	user := objmap["discussion_results"].([]interface{})[0].(map[string]interface{})["username"].(string)
-	user = user + "_test_concat"
-	objmap["discussion_results"].([]interface{})[0].(map[string]interface{})["username"] = user
 	for i := 0; i < len(objmap["discussion_results"].([]interface{})); i++ {
 		objmap["discussion_results"].([]interface{})[i].(map[string]interface{})["orders"] = i + 1
 		objmap["discussion_results"].([]interface{})[i].(map[string]interface{})["reply_count"] = len(objmap["discussion_results"].([]interface{})[i].(map[string]interface{})["replies"].([]interface{}))

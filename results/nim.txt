@@ -1,0 +1,30 @@
+++++++++++ 1st Testing PC Specs ++++++++++
+OS: MacOS Sonoma
+CPU: M2
+RAM: 8GB
+
+########## CLI Test ##########
+timeit --name=serializerbenchmark --def='api_operation()'
+
+------- Attempt 1 -------
+[2ms 49μs 420.68ns] ± [537μs 426.46ns] per loop (mean ± std. dev. of 7 runs, 10 loops each)
+------- Attempt 2 -------
+[1ms 509μs 351.16ns] ± [218μs 161.48ns] per loop (mean ± std. dev. of 7 runs, 100 loops each)
+------- Attempt 3 -------
+[1ms 625μs 661.47ns] ± [1ms 613μs 515.84ns] per loop (mean ± std. dev. of 7 runs, 100 loops each)
+------- Attempt 4 -------
+[1ms 597μs 639.02ns] ± [255μs 460.35ns] per loop (mean ± std. dev. of 7 runs, 100 loops each)
+------- Attempt 5 -------
+[1ms 562μs 906.85ns] ± [66μs 770.70ns] per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+Time taken: 0.010477 / 10.477ms
+------- Attempt 2 -------
+Time taken: 0.015123 / 15.123ms
+------- Attempt 3 -------
+Time taken: 0.012614 / 12.614ms
+------- Attempt 4 -------
+Time taken: 0.015002 / 15.002ms
+------- Attempt 5 -------
+Time taken: 0.01238 / 12.38ms
