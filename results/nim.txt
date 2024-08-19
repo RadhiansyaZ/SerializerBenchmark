@@ -4,7 +4,7 @@ CPU: M2
 RAM: 8GB
 
 ########## CLI Test ##########
-timeit --name=serializerbenchmark --def='api_operation()'
+timeit --name=serialize --def='api_operation()'
 
 ------- Attempt 1 -------
 [2ms 49μs 420.68ns] ± [537μs 426.46ns] per loop (mean ± std. dev. of 7 runs, 10 loops each)
@@ -19,12 +19,45 @@ timeit --name=serializerbenchmark --def='api_operation()'
 
 ########## HTTP Request Test ##########
 ------- Attempt 1 -------
-Time taken: 0.010477 / 10.477ms
+Time taken: 0.010477s / 10.477ms
 ------- Attempt 2 -------
-Time taken: 0.015123 / 15.123ms
+Time taken: 0.015123s / 15.123ms
 ------- Attempt 3 -------
-Time taken: 0.012614 / 12.614ms
+Time taken: 0.012614s / 12.614ms
 ------- Attempt 4 -------
-Time taken: 0.015002 / 15.002ms
+Time taken: 0.015002s / 15.002ms
 ------- Attempt 5 -------
-Time taken: 0.01238 / 12.38ms
+Time taken: 0.01238s / 12.38ms
+
+
+
+++++++++++ 2nd Testing PC Specs ++++++++++
+OS: windows 11
+cpu: AMD Ryzen 7 5700G with Radeon Graphics
+RAM: 32GB
+
+########## CLI Test ##########
+timeit --name=serialize --def='api_operation()'
+
+------- Attempt 1 -------
+[2s 35ms 843μs 575.54ns] ± [2ms 838μs 207.61ns] per loop (mean ± std. dev. of 7 runs, 1 loops each)
+------- Attempt 2 -------
+[2s 53ms 37μs 136.09ns] ± [2ms 303μs 745.40ns] per loop (mean ± std. dev. of 7 runs, 1 loops each)
+------- Attempt 3 -------
+[2s 36ms 223μs 514.56ns] ± [4ms 722μs 188.99ns] per loop (mean ± std. dev. of 7 runs, 1 loops each)
+------- Attempt 4 -------
+[2s 41ms 878μs 196.12ns] ± [3ms 435μs 573.62ns] per loop (mean ± std. dev. of 7 runs, 1 loops each)
+------- Attempt 5 -------
+[1ms 562μs 906.85ns] ± [66μs 770.70ns] per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+Time taken: 2.062s
+------- Attempt 2 -------
+Time taken: 2.013000000000005s
+------- Attempt 3 -------
+Time taken: 2.033000000000001s
+------- Attempt 4 -------
+Time taken: 2.046000000000006s
+------- Attempt 5 -------
+Time taken: 2.007000000000005
