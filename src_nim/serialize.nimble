@@ -5,7 +5,7 @@ author        = "alwafis"
 description   = "Serializer benchmark"
 license       = "MIT"
 srcDir        = "."
-bin           = @["serializer_benchmark"]
+bin           = @["serialize"]
 
 
 # Dependencies
