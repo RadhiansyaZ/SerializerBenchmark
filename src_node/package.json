@@ -1,0 +1,21 @@
+{
+  "name": "serializer",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch serialize.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.4",
+    "benchmark": "^2.1.4",
+    "benchmarkify": "^4.0.0",
+    "elysia": "latest",
+    "microtime": "^3.1.1"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "nodemark": "^0.3.0"
+  },
+  "module": "serialize.js",
+  "type": "module"
+}
