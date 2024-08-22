@@ -1,7 +1,7 @@
 import axios from "axios";
 const api_operations = async () => {
   // Initiate execution time tracking
-  // console.time("execution");
+  console.time("execution");
   // Call an external API via axios
   const instance = axios.create({
     baseURL: "http://127.0.0.1:8080",
@@ -19,7 +19,7 @@ const api_operations = async () => {
     cnt++;
   });
   // Measure the execution time
-  // console.timeEnd("execution");
+  console.timeEnd("execution");
   return result;
 };
 export { api_operations };

@@ -1,0 +1,35 @@
+++++++++++ 1st Testing PC Specs ++++++++++
+OS: MacOS Sonoma
+CPU: M2
+RAM: 8GB
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+
+------- Attempt 2 -------
+
+------- Attempt 3 -------
+
+------- Attempt 4 -------
+
+------- Attempt 5 -------
+
+
+
+
+++++++++++ 2nd Testing PC Specs ++++++++++
+OS: windows 11
+cpu: AMD Ryzen 7 5700G with Radeon Graphics
+RAM: 32GB
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+Execution time: [21.07ms] 
+------- Attempt 2 -------
+Execution time: [2.85ms] 
+------- Attempt 3 -------
+Execution time: [3.37ms] 
+------- Attempt 4 -------
+Execution time: [3.39ms] 
+------- Attempt 5 -------
+Execution time: [3.97ms] 
