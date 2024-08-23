@@ -10,27 +10,27 @@ goarch: arm64
 pkg: benchmark
 
 ------- Attempt 1 -------
-BenchmarkSerialize-8   	    3364	    343962 ns/op	   55685 B/op	     475 allocs/op
+BenchmarkSerialize-8   	    3364	    343962 ns(0.343962ms)/op	   55685 B/op	     475 allocs/op
 PASS
 ok  	benchmark	1.625s
 
 ------- Attempt 2 -------
-BenchmarkSerialize-8   	    4090	    287422 ns/op	   55690 B/op	     475 allocs/op
+BenchmarkSerialize-8   	    4090	    287422 ns(0.287422ms)/op	   55690 B/op	     475 allocs/op
 PASS
 ok  	benchmark	2.539s
 
 ------- Attempt 3 -------
-BenchmarkSerialize-8   	    3900	    298927 ns/op	   55721 B/op	     475 allocs/op
+BenchmarkSerialize-8   	    3900	    298927 ns(0.298927ms)/op	   55721 B/op	     475 allocs/op
 PASS
 ok  	benchmark	2.458s
 
 ------- Attempt 4 -------
-BenchmarkSerialize-8   	    3894	    286646 ns/op	   55705 B/op	     475 allocs/op
+BenchmarkSerialize-8   	    3894	    286646 ns(0.286646ms)/op	   55705 B/op	     475 allocs/op
 PASS
 ok  	benchmark	2.752s
 
 ------- Attempt 5 -------
-BenchmarkSerialize-8   	    3501	    293742 ns/op	   55723 B/op	     475 allocs/op
+BenchmarkSerialize-8   	    3501	    293742 ns(0.293742ms)/op	   55723 B/op	     475 allocs/op
 PASS
 ok  	benchmark	1.412s
 
@@ -61,27 +61,27 @@ pkg: benchmark
 cpu: AMD Ryzen 7 5700G with Radeon Graphics
 
 ------- Attempt 1 -------
-BenchmarkSerialize-16               1934            540683 ns/op           55146 B/op        418 allocs/op
+BenchmarkSerialize-16               1934            540683 ns(0,540683ms)/op           55146 B/op        418 allocs/op
 PASS
 ok      benchmark       1.827s
 
 ------- Attempt 2 -------
-BenchmarkSerialize-16               2215            521529 ns/op           55199 B/op        418 allocs/op
+BenchmarkSerialize-16               2215            521529 ns(0,521529ms)/op           55199 B/op        418 allocs/op
 PASS
 ok      benchmark       1.895s
 
 ------- Attempt 3 -------
-BenchmarkSerialize-16               2347            509133 ns/op           55123 B/op        418 allocs/op
+BenchmarkSerialize-16               2347            509133 ns(0,509133ms)/op           55123 B/op        418 allocs/op
 PASS
 ok      benchmark       1.933s
 
 ------- Attempt 4 -------
-BenchmarkSerialize-16               2234            511530 ns/op           55193 B/op        418 allocs/op
+BenchmarkSerialize-16               2234            511530 ns(0,511530ms)/op           55193 B/op        418 allocs/op
 PASS
 ok      benchmark       1.879s
 
 ------- Attempt 5 -------
-BenchmarkSerialize-16               2277            512756 ns/op           55091 B/op        418 allocs/op
+BenchmarkSerialize-16               2277            512756 ns(0,512756ms)/op           55091 B/op        418 allocs/op
 PASS
 ok      benchmark       1.916s
 
