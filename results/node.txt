@@ -5,14 +5,16 @@ RAM: 8GB
 
 ########## HTTP Request Test ##########
 ------- Attempt 1 -------
-
+Execution: [46.45ms]
 ------- Attempt 2 -------
-
+Execution: [11.17ms]
 ------- Attempt 3 -------
-
+Execution: [7.57ms]
 ------- Attempt 4 -------
-
+Execution: [7.72ms]
 ------- Attempt 5 -------
+Execution: [6.94ms]
+
 
 
 
@@ -24,12 +26,12 @@ RAM: 32GB
 
 ########## HTTP Request Test ##########
 ------- Attempt 1 -------
-Execution time: [21.07ms] 
+Execution time: [21.07ms]
 ------- Attempt 2 -------
-Execution time: [2.85ms] 
+Execution time: [2.85ms]
 ------- Attempt 3 -------
-Execution time: [3.37ms] 
+Execution time: [3.37ms]
 ------- Attempt 4 -------
-Execution time: [3.39ms] 
+Execution time: [3.39ms]
 ------- Attempt 5 -------
-Execution time: [3.97ms] 
+Execution time: [3.97ms]

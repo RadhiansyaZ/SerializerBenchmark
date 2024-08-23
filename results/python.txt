@@ -1,0 +1,65 @@
+python -m timeit -p -s 'import serialize' 'serialize.api_operations()'
+
+++++++++++ 1st Testing PC Specs ++++++++++
+OS: MacOS Sonoma
+CPU: M2
+RAM: 8GB
+
+########## CLI Test ##########
+timeit --name=serialize --def='api_operation()'
+
+------- Attempt 1 -------
+200 loops, best of 5: 1.07 msec per loop
+------- Attempt 2 -------
+500 loops, best of 5: 934 usec per loop
+------- Attempt 3 -------
+500 loops, best of 5: 859 usec per loop
+------- Attempt 4 -------
+500 loops, best of 5: 945 usec per loop
+------- Attempt 5 -------
+500 loops, best of 5: 939 usec per loop
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+Elapsed time: 11.88000000000003ms
+------- Attempt 2 -------
+Elapsed time: 7.263000000000019ms
+------- Attempt 3 -------
+Elapsed time: 7.529000000000008ms
+------- Attempt 4 -------
+Elapsed time: 3.094999999999959ms
+------- Attempt 5 -------
+Elapsed time: 3.505000000000036ms
+
+
+
+++++++++++ 2nd Testing PC Specs ++++++++++
+OS: windows 11
+cpu: AMD Ryzen 7 5700G with Radeon Graphics
+RAM: 32GB
+
+########## CLI Test ##########
+timeit --name=serialize --def='api_operation()'
+
+------- Attempt 1 -------
+NOTESTYET
+------- Attempt 2 -------
+NOTESTYET
+------- Attempt 3 -------
+NOTESTYET
+------- Attempt 4 -------
+NOTESTYET
+------- Attempt 5 -------
+NOTESTYET
+
+########## HTTP Request Test ##########
+------- Attempt 1 -------
+Time taken: -
+------- Attempt 2 -------
+Time taken: -
+------- Attempt 3 -------
+Time taken: -
+------- Attempt 4 -------
+Time taken: -
+------- Attempt 5 -------
+Time taken: -
