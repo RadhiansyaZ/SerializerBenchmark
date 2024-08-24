@@ -3,3 +3,4 @@
 nimdeps
 __pycache__
 venv
+*/bin/*

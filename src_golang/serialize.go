@@ -1,9 +1,10 @@
 package main
 
 import (
-	// normal impl:"encoding/json"
-	"fmt"
-	"io/ioutil"
+	// normal impl:
+	// "encoding/json"
+
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -18,21 +19,22 @@ func Serialize() []byte {
 	// Variable declaration to handle the API response
 	var objmap map[string]interface{}
 	// jsoniter impl:
-	var jsonit = jsoniter.ConfigCompatibleWithStandardLibrary
+	var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
 	// Fetching the API response
 	response, err := http.Get("http://localhost:8080/sample.json")
 	if err != nil {
-		fmt.Print(err.Error())
-		os.Exit(1)
+		log.Fatal(err)
 	}
 
 	// Reading the API response
-	responseData, err := ioutil.ReadAll(response.Body)
+	responseData, err := io.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
 	// jsoniter impl:
 	// normal impl: if err = json.Unmarshal(responseData, &objmap); err != nil {
-	if err = jsonit.Unmarshal(responseData, &objmap); err != nil {
-
+	if err = json.Unmarshal(responseData, &objmap); err != nil {
 		log.Fatal(err)
 	}
 	if err != nil {
@@ -48,9 +50,9 @@ func Serialize() []byte {
 	// Serializing the modified API response
 	// normal impl: finalres, err := json.Marshal(objmap)
 	// jsoniter impl:
-	finalres, err := jsonit.Marshal(objmap)
+	finalres, err := json.Marshal(objmap)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	// Code to measure
@@ -62,15 +64,6 @@ func Serialize() []byte {
 
 }
 
-func ActionIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(Serialize())
-}
-
 func main() {
-	http.HandleFunc("/", ActionIndex)
-
-	fmt.Println("server started at localhost:9000")
-	http.ListenAndServe(":9000", nil)
 	Serialize()
 }
