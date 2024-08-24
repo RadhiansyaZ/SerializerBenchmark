@@ -11,13 +11,13 @@ timeit --name=serialize --def='api_operation()'
 ------- Attempt 1 -------
 200 loops, best of 5: 1.07 msec per loop
 ------- Attempt 2 -------
-500 loops, best of 5: 934 usec per loop
+500 loops, best of 5: 934 usec/0.934 ms per loop
 ------- Attempt 3 -------
-500 loops, best of 5: 859 usec per loop
+500 loops, best of 5: 859 usec/0.859 ms per loop
 ------- Attempt 4 -------
-500 loops, best of 5: 945 usec per loop
+500 loops, best of 5: 945 usec/0.945 ms per loop
 ------- Attempt 5 -------
-500 loops, best of 5: 939 usec per loop
+500 loops, best of 5: 939 usec/0.939 ms per loop
 
 ########## HTTP Request Test ##########
 ------- Attempt 1 -------

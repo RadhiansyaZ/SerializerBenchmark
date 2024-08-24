@@ -36,15 +36,15 @@ ok  	benchmark	1.412s
 
 ########## HTTP Request Test ##########
 ------- Attempt 1 -------
-duration: 13.906083ms
+duration: 2.865916ms
 ------- Attempt 2 -------
-duration: 11.24675ms
+duration: 16.783416ms
 ------- Attempt 3 -------
-duration: 24.580792ms
+duration: 5.789875ms
 ------- Attempt 4 -------
-duration: 8.023084ms
+duration: 3.66725ms
 ------- Attempt 5 -------
-duration: 7.747917ms
+duration: 4.849333ms
 
 
 
