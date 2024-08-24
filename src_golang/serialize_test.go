@@ -10,3 +10,10 @@ func BenchmarkSerialize(b *testing.B) {
 		Serialize()
 	}
 }
+
+func BenchmarkSerializeToStruct(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		b.ReportAllocs()
+		SerializeToStruct()
+	}
+}

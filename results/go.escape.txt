@@ -1,0 +1,56 @@
+CGO_ENABLED=0 GOOS=linux go build -o bin/serialize_escape -gcflags "-m" serialize.go
+# command-line-arguments
+./serialize.go:29:2: can inline Serialize.deferwrap1
+./serialize.go:25:27: inlining call to http.Get
+./serialize.go:56:61: inlining call to time.Duration.String
+./serialize.go:74:6: can inline (*Comment).CountReplies
+./serialize.go:101:2: can inline SerializeToStruct.deferwrap1
+./serialize.go:91:27: inlining call to http.Get
+./serialize.go:115:37: inlining call to (*Comment).CountReplies
+./serialize.go:127:61: inlining call to time.Duration.String
+./serialize.go:133:6: can inline main
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:63:6: can inline atomic.(*Pointer[go.shape.interface {}]).CompareAndSwap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:60:6: can inline atomic.(*Pointer[go.shape.interface {}]).Swap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:57:6: can inline atomic.(*Pointer[go.shape.interface {}]).Store
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:54:6: can inline atomic.(*Pointer[go.shape.interface {}]).Load
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:63:6: can inline atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).CompareAndSwap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:60:6: can inline atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).Swap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:57:6: can inline atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).Store
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:54:6: can inline atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).Load
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:63:6: can inline atomic.(*Pointer[sync.readOnly]).CompareAndSwap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:63:6: inlining call to atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).CompareAndSwap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:60:6: can inline atomic.(*Pointer[sync.readOnly]).Swap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:60:6: inlining call to atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).Swap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:57:6: can inline atomic.(*Pointer[sync.readOnly]).Store
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:57:6: inlining call to atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).Store
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:54:6: can inline atomic.(*Pointer[sync.readOnly]).Load
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:54:6: inlining call to atomic.(*Pointer[go.shape.struct { sync.m map[interface {}]*sync.entry; sync.amended bool }]).Load
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:63:6: can inline atomic.(*Pointer[interface {}]).CompareAndSwap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:63:6: inlining call to atomic.(*Pointer[go.shape.interface {}]).CompareAndSwap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:60:6: can inline atomic.(*Pointer[interface {}]).Swap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:60:6: inlining call to atomic.(*Pointer[go.shape.interface {}]).Swap
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:57:6: can inline atomic.(*Pointer[interface {}]).Store
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:57:6: inlining call to atomic.(*Pointer[go.shape.interface {}]).Store
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:54:6: can inline atomic.(*Pointer[interface {}]).Load
+/nix/store/djfq3xhzvb2bk9k8wnglnap0ycpzsrk0-go-1.22.5/share/go/src/sync/atomic/type.go:54:6: inlining call to atomic.(*Pointer[go.shape.interface {}]).Load
+./serialize.go:20:6: moved to heap: objmap
+./serialize.go:27:12: ... argument does not escape
+./serialize.go:34:12: ... argument does not escape
+./serialize.go:38:12: ... argument does not escape
+./serialize.go:43:90: i + 1 escapes to heap
+./serialize.go:44:96: len(objmap["discussion_results"].([]interface {})[i].(map[string]interface {})["replies"].([]interface {})) escapes to heap
+./serialize.go:50:12: ... argument does not escape
+./serialize.go:56:45: ([]byte)("duration: " + ~r0) does not escape
+./serialize.go:56:45: "duration: " + ~r0 does not escape
+./serialize.go:56:61: string(time.arr[time.n:]) does not escape
+./serialize.go:74:7: c does not escape
+./serialize.go:104:6: moved to heap: objmap
+./serialize.go:93:12: ... argument does not escape
+./serialize.go:99:12: ... argument does not escape
+./serialize.go:106:12: ... argument does not escape
+./serialize.go:109:12: ... argument does not escape
+./serialize.go:119:32: objmap escapes to heap
+./serialize.go:121:12: ... argument does not escape
+./serialize.go:127:45: ([]byte)("duration: " + ~r0) does not escape
+./serialize.go:127:45: "duration: " + ~r0 does not escape
+./serialize.go:127:61: string(time.arr[time.n:]) does not escape

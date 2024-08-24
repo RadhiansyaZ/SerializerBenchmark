@@ -3,7 +3,7 @@
 all: build serve
 
 bench: 
-	go test -benchtime=1s -bench=. -benchmem
+	go test -benchtime=3000x -bench=. -benchmem
 
 build: 
 	CGO_ENABLED=0 GOOS=linux go build -o bin/serialize serialize.go
