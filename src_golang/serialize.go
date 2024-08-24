@@ -26,18 +26,15 @@ func Serialize() []byte {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer response.Body.Close()
 
 	// Reading the API response
 	responseData, err := io.ReadAll(response.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-	// jsoniter impl:
-	// normal impl: if err = json.Unmarshal(responseData, &objmap); err != nil {
+
 	if err = json.Unmarshal(responseData, &objmap); err != nil {
-		log.Fatal(err)
-	}
-	if err != nil {
 		log.Fatal(err)
 	}
 
@@ -48,8 +45,6 @@ func Serialize() []byte {
 	}
 
 	// Serializing the modified API response
-	// normal impl: finalres, err := json.Marshal(objmap)
-	// jsoniter impl:
 	finalres, err := json.Marshal(objmap)
 	if err != nil {
 		log.Fatal(err)
