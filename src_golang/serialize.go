@@ -2,8 +2,8 @@ package main
 
 import (
 	// normal impl:
-	// "encoding/json"
 
+	"encoding/json"
 	"io"
 	"log"
 	"net/http"
@@ -56,7 +56,48 @@ func Serialize() []byte {
 	os.WriteFile("out.txt", []byte("duration: "+duration.String()), 0666)
 
 	return finalres
+}
 
+func SerializeWithStd() []byte {
+	start := time.Now()
+	// Variable declaration to handle the API response
+	var objmap map[string]interface{}
+
+	// Fetching the API response
+	response, err := http.Get("http://localhost:8080/sample.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer response.Body.Close()
+
+	// Reading the API response
+	responseData, err := io.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err = json.Unmarshal(responseData, &objmap); err != nil {
+		log.Fatal(err)
+	}
+
+	// Modifying the API response
+	for i := 0; i < len(objmap["discussion_results"].([]interface{})); i++ {
+		objmap["discussion_results"].([]interface{})[i].(map[string]interface{})["orders"] = i + 1
+		objmap["discussion_results"].([]interface{})[i].(map[string]interface{})["reply_count"] = len(objmap["discussion_results"].([]interface{})[i].(map[string]interface{})["replies"].([]interface{}))
+	}
+
+	// Serializing the modified API response
+	finalres, err := json.Marshal(objmap)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Code to measure
+	duration := time.Since(start)
+
+	os.WriteFile("std.out.txt", []byte("duration: "+duration.String()), 0666)
+
+	return finalres
 }
 
 type Result struct {
@@ -121,10 +162,51 @@ func SerializeToStruct() []byte {
 	// Code to measure
 	duration := time.Since(start)
 
-	os.WriteFile("out.txt", []byte("duration: "+duration.String()), 0666)
+	os.WriteFile("new.out.txt", []byte("duration: "+duration.String()), 0666)
 
 	return finalres
+}
 
+func SerializeToStructWithStd() []byte {
+	start := time.Now()
+
+	// Fetching the API response
+	response, err := http.Get("http://localhost:8080/sample.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Reading the API response
+	responseData, err := io.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer response.Body.Close()
+
+	// Variable declaration to handle the API response
+	var objmap Result
+	if err = json.Unmarshal(responseData, &objmap); err != nil {
+		log.Fatal(err)
+	}
+
+	// Modifying the API response
+	for i := range objmap.Discussions {
+		objmap.Discussions[i].Orders = i + 1
+		objmap.Discussions[i].CountReplies()
+	}
+
+	// Serializing the modified API response
+	finalres, err := json.Marshal(objmap)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Code to measure
+	duration := time.Since(start)
+
+	os.WriteFile("new.std.out.txt", []byte("duration: "+duration.String()), 0666)
+
+	return finalres
 }
 
 func main() {

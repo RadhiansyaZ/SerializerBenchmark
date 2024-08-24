@@ -3,25 +3,9 @@ goos: linux
 goarch: amd64
 pkg: benchmark
 cpu: AMD Ryzen 5 7600 6-Core Processor              
-BenchmarkSerialize-12            	    3000	    463385 ns/op	   55778 B/op	     472 allocs/op
-BenchmarkSerializeToStruct-12    	    3000	    414924 ns/op	   40803 B/op	     113 allocs/op
+BenchmarkSerialize-12                   	    3000	    459060 ns/op	   55791 B/op	     472 allocs/op
+BenchmarkSerializeWithStd-12            	    3000	    462582 ns/op	   51302 B/op	     359 allocs/op
+BenchmarkSerializeToStruct-12           	    3000	    424353 ns/op	   40820 B/op	     113 allocs/op
+BenchmarkSerializeToStructWithStd-12    	    3000	    441454 ns/op	   41410 B/op	     122 allocs/op
 PASS
-ok  	benchmark	2.643s
-go test -benchtime=3000x -bench=. -benchmem
-goos: linux
-goarch: amd64
-pkg: benchmark
-cpu: AMD Ryzen 5 7600 6-Core Processor              
-BenchmarkSerialize-12            	    3000	    449362 ns/op	   55754 B/op	     472 allocs/op
-BenchmarkSerializeToStruct-12    	    3000	    415371 ns/op	   40779 B/op	     113 allocs/op
-PASS
-ok  	benchmark	2.602s
-go test -benchtime=3000x -bench=. -benchmem
-goos: linux
-goarch: amd64
-pkg: benchmark
-cpu: AMD Ryzen 5 7600 6-Core Processor              
-BenchmarkSerialize-12            	    3000	    455417 ns/op	   55773 B/op	     472 allocs/op
-BenchmarkSerializeToStruct-12    	    3000	    435765 ns/op	   40947 B/op	     113 allocs/op
-PASS
-ok  	benchmark	2.682s
+ok  	benchmark	5.373s
