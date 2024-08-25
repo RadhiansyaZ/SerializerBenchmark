@@ -53,8 +53,8 @@ goos: linux
 goarch: amd64
 pkg: benchmark
 cpu: AMD Ryzen 5 7600 6-Core Processor
-BenchmarkSerialize-12           	    3000	    424353 ns/op	   40820 B/op	     113 allocs/op
-BenchmarkSerialize-12    	            3000	    441454 ns/op	   41410 B/op	     122 allocs/op
+BenchmarkSerialize-12           	            3000	    424353 ns/op	   40820 B/op	     113 allocs/op
+BenchmarkSerializeWithStd-12    	            3000	    441454 ns/op	   41410 B/op	     122 allocs/op
 PASS
 ```
 so it can be compared by `benchstat`. The command used to compare the result is `benchstat ./results/go.bench.old.txt ./results/go.bench.new.txt` in root directory. The comparison stored in `./results/go.bench.compared.txt`.
@@ -92,7 +92,7 @@ You may notice that in both scenario, the result of `objmap` is always gone to h
 ```zsh
 ./serialize.go:20:6: moved to heap: objmap
 ```
-This is because the compiler doesn't know the size of `objmap` in compile time, thus allocating it in heap. It applies to both original implementation with `map[string]interface{}` but also to the new implementation with struct. The struct is having a unknown size slices of `D` and inside the `D`, there is an `R` slice which is also unknown size.
+This is because the compiler doesn't know the size of `objmap` in compile time, thus allocating it in heap. It applies to both original implementation with `map[string]interface{}` but also to the new implementation with struct. The struct is having a unknown size slice of `D` and inside the `D`, there is an `R` slice which is also unknown size.
 
 ### Benchmark
 
