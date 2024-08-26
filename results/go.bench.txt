@@ -58,3 +58,61 @@ BenchmarkSerializeToStructWithStd-12    	    3000	   2007970 ns/op	   42805 B/op
 BenchmarkSerializeToStructWithStd-12    	    3000	   2009435 ns/op	   42654 B/op	     130 allocs/op
 PASS
 ok  	benchmark	136.291s
+goos: darwin
+goarch: arm64
+pkg: benchmark
+BenchmarkSerialize-8                  	    3000	    192837 ns/op	   55679 B/op	     472 allocs/op
+BenchmarkSerialize-8                  	    3000	    163858 ns/op	   55718 B/op	     472 allocs/op
+BenchmarkSerialize-8                  	    3000	    161435 ns/op	   55723 B/op	     472 allocs/op
+BenchmarkSerialize-8                  	    3000	    160807 ns/op	   55697 B/op	     472 allocs/op
+BenchmarkSerialize-8                  	    3000	    160922 ns/op	   55649 B/op	     472 allocs/op
+BenchmarkSerialize-8                  	    3000	    163087 ns/op	   55747 B/op	     472 allocs/op
+BenchmarkSerializeWithStd-8           	    3000	    177759 ns/op	   51157 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-8           	    3000	    176693 ns/op	   51200 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-8           	    3000	    179618 ns/op	   51157 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-8           	    3000	    180916 ns/op	   51103 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-8           	    3000	    193812 ns/op	   51169 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-8           	    3000	    189734 ns/op	   51163 B/op	     359 allocs/op
+BenchmarkSerializeToStruct-8          	    3000	    179649 ns/op	   40892 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-8          	    3000	    144214 ns/op	   40731 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-8          	    3000	    145967 ns/op	   40758 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-8          	    3000	    146566 ns/op	   40832 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-8          	    3000	    146987 ns/op	   40891 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-8          	    3000	    145767 ns/op	   40791 B/op	     113 allocs/op
+BenchmarkSerializeToStructWithStd-8   	    3000	    168239 ns/op	   41136 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-8   	    3000	    168965 ns/op	   41158 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-8   	    3000	    169055 ns/op	   41232 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-8   	    3000	    168416 ns/op	   41158 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-8   	    3000	    172186 ns/op	   41205 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-8   	    3000	    170851 ns/op	   41178 B/op	     122 allocs/op
+PASS
+ok  	benchmark	12.116s
+goos: darwin
+goarch: arm64
+pkg: benchmark
+BenchmarkSerialize-6                  	    3000	    177835 ns/op	   55700 B/op	     472 allocs/op
+BenchmarkSerialize-6                  	    3000	    165365 ns/op	   55722 B/op	     472 allocs/op
+BenchmarkSerialize-6                  	    3000	    162859 ns/op	   55713 B/op	     472 allocs/op
+BenchmarkSerialize-6                  	    3000	    160275 ns/op	   55713 B/op	     472 allocs/op
+BenchmarkSerialize-6                  	    3000	    159972 ns/op	   55642 B/op	     472 allocs/op
+BenchmarkSerialize-6                  	    3000	    161809 ns/op	   55721 B/op	     472 allocs/op
+BenchmarkSerializeWithStd-6           	    3000	    177782 ns/op	   51132 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-6           	    3000	    177284 ns/op	   51237 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-6           	    3000	    177452 ns/op	   51199 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-6           	    3000	    177744 ns/op	   51181 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-6           	    3000	    176691 ns/op	   51217 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-6           	    3000	    177945 ns/op	   51176 B/op	     359 allocs/op
+BenchmarkSerializeToStruct-6          	    3000	    145471 ns/op	   40856 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-6          	    3000	    147072 ns/op	   40819 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-6          	    3000	    159347 ns/op	   40885 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-6          	    3000	    143384 ns/op	   40827 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-6          	    3000	    144309 ns/op	   40802 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-6          	    3000	    144965 ns/op	   40907 B/op	     113 allocs/op
+BenchmarkSerializeToStructWithStd-6   	    3000	    167269 ns/op	   41248 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-6   	    3000	    168827 ns/op	   41344 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-6   	    3000	    169200 ns/op	   41343 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-6   	    3000	    170110 ns/op	   41212 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-6   	    3000	    172529 ns/op	   41265 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-6   	    3000	    168872 ns/op	   41357 B/op	     122 allocs/op
+PASS
+ok  	benchmark	11.887s
