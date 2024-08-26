@@ -2,25 +2,26 @@
 
 ## Goal
 
-Use a defined struct to store the value of the unmarshalled JSON instead of using a `map[string]interface{}`. This is to avoid type inference and runtime reflection. On the original code, the map is used to store the value of the struct, which is can be done by using the struct itself. Since `Nim` implementation is using a struct, it is better to use a struct for the `Go` implementation as well, because both are staticly typed and compiled language. 
+Use a defined struct to store the value of the unmarshalled JSON instead of using a `map[string]interface{}`. This is to avoid type inference and runtime reflection. On the original code, the map is used to store the value of the struct, which is can be done by using the struct itself. Since `Nim` implementation is using a struct, it is better to use a struct for the `Go` implementation as well, because both are staticly typed and compiled language.
 
 ## Methodology
 
 ### Execution
 
-Use `make test` to run the test. The test will run the benchmark and the escape analysis. The escape analysis is done by running `go build -gcflags="-m"`. The benchmark is done by running `go test -benchtime=3000x -bench=. -benchmem`. The result of the benchmark is stored in `../results/go.bench.txt` and the escape analysis is stored in `../results/go.escape.txt`.
+Use `make test` to run the test. The test will run the benchmark and the escape analysis. The escape analysis is done by running `go build -gcflags="-m"`. The benchmark is done by running `go test -benchtime=3000x -bench=. -benchmem -count=6`. The result of the benchmark is stored in `../results/go.bench.txt` and the escape analysis is stored in `../results/go.escape.txt`.
 
 ### Changes
 
 #### Timing
 
-The timing used in the flag `-benchtime=` is changed from `1s` in second to `3000x` iteration. The reason is to even up the same sample size regardless of test bench used.
+The timing used in the flag `-benchtime=` is changed from `1s` in second to `3000x` iteration for each test. The test itself run `6 times`. The reason is to even up the same sample size regardless of test bench used. Note that both 3000 and 6 are arbitrarily chosen with no special meaning.
 
 #### Comparator
 
 Will use `benchstat` of [goperf](https://cs.opensource.google/go/x/perf) to compare the benchmark result difference. Since the the implementation difference is split into two function, the result from `../results/go.bench` will be split into two different file, `../results/go.bench.old.txt` and `../results/go_struct.bench.new.txt`. Then, the function name of compared function will be renamed with the same name so it can be compared by bench stat. Installation of `benchstat` can be done by running `go install golang.org/x/perf/cmd/benchstat@latest`.
 
-For example, if the original file is 
+For example, if the original file is
+
 ```zsh
 go test -benchtime=3000x -bench=. -benchmem
 goos: linux
@@ -33,7 +34,9 @@ BenchmarkSerializeToStruct-12           	    3000	    424353 ns/op	   40820 B/op
 BenchmarkSerializeToStructWithStd-12    	    3000	    441454 ns/op	   41410 B/op	     122 allocs/op
 PASS
 ```
+
 it will be split into two files, `go.bench.old.txt` and `go_struct.bench.new.txt` with the following content:
+
 ```zsh
 # go.bench.old.txt
 go test -benchtime=3000x -bench=. -benchmem
@@ -45,7 +48,9 @@ BenchmarkSerialize-12                   	    3000	    459060 ns/op	   55791 B/op
 BenchmarkSerializeWithStd-12            	    3000	    462582 ns/op	   51302 B/op	     359 allocs/op
 PASS
 ```
+
 Then, the function name of the `go_struct.bench.new.txt` will be renamed to `BenchmarkSerialize` and `BenchmarkSerializeWithStd`:
+
 ```zsh
 # go.bench.new.txt
 go test -benchtime=3000x -bench=. -benchmem
@@ -57,6 +62,7 @@ BenchmarkSerialize-12           	            3000	    424353 ns/op	   40820 B/op
 BenchmarkSerializeWithStd-12    	            3000	    441454 ns/op	   41410 B/op	     122 allocs/op
 PASS
 ```
+
 so it can be compared by `benchstat`. The command used to compare the result is `benchstat ./results/go.bench.old.txt ./results/go.bench.new.txt` in root directory. The comparison stored in `./results/go.bench.compared.txt`.
 
 ### Removal of HTTP Server
@@ -75,58 +81,61 @@ Since the goal is to compare the performance of the serialization, the HTTP serv
 ### Escape analysis
 
 The escape analysis is done by running `go build -gcflags="-m"`. The difference between the original and the new implementation is between line 43-52 and line 63-72 in `../results/go.escape.txt`. The main difference is line 57-58 in the original implementation:
+
 ```zsh
 ./serialize.go:85:90: i + 1 escapes to heap
 ./serialize.go:86:96: len(objmap["discussion_results"].([]interface {})[i].(map[string]interface {})["replies"].([]interface {})) escapes to heap
-``` 
+```
+
 and line 63 in the new implementation:
+
 ```zsh
 ./serialize.go:115:7: c does not escape
 ```
+
 The difference is there are more heap allocation in the original implementation compared to the new implementation.
 The reasons are:
-- Since the compiler cannot determined `i` is not used after the function returns, the compiler takes a safety approach by assuming the value could possibly referenced after the function returns.
-- The use of `map[string]interface{}` in the original implementation makes the compiler store the `interface{}` pointer to another memory, then use the type inference to access it in runtime. 
+    - Since the compiler cannot determined `i` is not used after the function returns, the compiler takes a safety approach by assuming the value could possibly referenced after the function returns.
+    - The use of `map[string]interface{}` in the original implementation makes the compiler store the `interface{}` pointer to another memory, then use the type inference to access it in runtime. 
 
 You may notice that in both scenario, the result of `objmap` is always gone to heap, shown by following:
+
 ```zsh
 ./serialize.go:20:6: moved to heap: objmap
 ```
+
 This is because the compiler doesn't know the size of `objmap` in compile time, thus allocating it in heap. It applies to both original implementation with `map[string]interface{}` but also to the new implementation with struct. The struct is having a unknown size slice of `D` and inside the `D`, there is an `R` slice which is also unknown size.
 
 ### Benchmark
 
 The result used for comparison is the first benchmark used in `go.bench.txt`. The result is as follows:
+
 ```zsh
 goos: linux
 goarch: amd64
 pkg: benchmark
 cpu: AMD Ryzen 5 7600 6-Core Processor              
-                    │ ./results/go.bench.old.txt │      ./results/go.bench.new.txt      │
-                    │           sec/op           │    sec/op     vs base                │
-Serialize-12                        459.1µ ± ∞ ¹   424.4µ ± ∞ ¹       ~ (p=1.000 n=1) ²
-SerializeWithStd-12                 462.6µ ± ∞ ¹   441.5µ ± ∞ ¹       ~ (p=1.000 n=1) ²
-geomean                             460.8µ         432.8µ        -6.08%
-¹ need >= 6 samples for confidence interval at level 0.95
-² need >= 4 samples to detect a difference at alpha level 0.05
+                    │ ./results/go.bench.old.txt │    ./results/go.bench.new.txt     │
+                    │           sec/op           │   sec/op     vs base              │
+Serialize-12                         457.1µ ± 5%   444.6µ ± 2%  -2.72% (p=0.004 n=6)
+SerializeWithStd-12                  477.7µ ± 1%   473.6µ ± 2%  -0.85% (p=0.041 n=6)
+geomean                              467.3µ        458.9µ       -1.79%
 
-                    │ ./results/go.bench.old.txt │       ./results/go.bench.new.txt       │
-                    │            B/op            │     B/op       vs base                 │
-Serialize-12                       54.48Ki ± ∞ ¹   39.86Ki ± ∞ ¹        ~ (p=1.000 n=1) ²
-SerializeWithStd-12                50.10Ki ± ∞ ¹   40.44Ki ± ∞ ¹        ~ (p=1.000 n=1) ²
-geomean                            52.25Ki         40.15Ki        -23.15%
-¹ need >= 6 samples for confidence interval at level 0.95
-² need >= 4 samples to detect a difference at alpha level 0.05
+                    │ ./results/go.bench.old.txt │     ./results/go.bench.new.txt      │
+                    │            B/op            │     B/op      vs base               │
+Serialize-12                        54.45Ki ± 0%   39.93Ki ± 0%  -26.67% (p=0.002 n=6)
+SerializeWithStd-12                 50.06Ki ± 0%   40.41Ki ± 0%  -19.28% (p=0.002 n=6)
+geomean                             52.21Ki        40.17Ki       -23.06%
 
-                    │ ./results/go.bench.old.txt │      ./results/go.bench.new.txt      │
-                    │         allocs/op          │  allocs/op   vs base                 │
-Serialize-12                         472.0 ± ∞ ¹   113.0 ± ∞ ¹        ~ (p=1.000 n=1) ²
-SerializeWithStd-12                  359.0 ± ∞ ¹   122.0 ± ∞ ¹        ~ (p=1.000 n=1) ²
-geomean                              411.6         117.4        -71.48%
-¹ need >= 6 samples for confidence interval at level 0.95
-² need >= 4 samples to detect a difference at alpha level 0.05
+                    │ ./results/go.bench.old.txt │    ./results/go.bench.new.txt     │
+                    │         allocs/op          │ allocs/op   vs base               │
+Serialize-12                          472.0 ± 0%   113.0 ± 0%  -76.06% (p=0.002 n=6)
+SerializeWithStd-12                   359.0 ± 0%   122.0 ± 0%  -66.02% (p=0.002 n=6)
+geomean                               411.6        117.4       -71.48%
+
 ```
-From the result above, there is small difference in the time taken to serialize the struct. The difference is around 6.08% faster than the original implementation. The memory allocation is also reduced by 23.15% and the number of allocation is reduced by 71.48%. The result is consistent with the goal of the modification, which is to reduce the number of allocation and memory usage.
+
+From the result above, there is small difference in the time taken to serialize the struct. The difference is only 1.79% faster than the original implementation. The memory allocation is also reduced by 23.06% and the number of allocation is reduced by 71.48%. The result is consistent with the goal of the modification, which is to reduce the number of allocation and memory usage.
 
 ## Conclusion
 

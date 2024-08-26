@@ -1,5 +1,5 @@
 ESCAPE=CGO_ENABLED=0 go build -o bin/serialize_escape -gcflags "-m" serialize.go
-BENCH=go test -benchtime=3000x -bench=. -benchmem -cpu=6
+BENCH=go test -benchtime=3000x -bench=. -benchmem -count=6
 
 .PHONY: all bench
 

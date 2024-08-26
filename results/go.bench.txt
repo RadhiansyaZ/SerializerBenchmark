@@ -1,31 +1,30 @@
-go test -benchtime=3000x -bench=. -benchmem
 goos: linux
 goarch: amd64
 pkg: benchmark
 cpu: AMD Ryzen 5 7600 6-Core Processor              
-BenchmarkSerialize-12                   	    3000	    459060 ns/op	   55791 B/op	     472 allocs/op
-BenchmarkSerializeWithStd-12            	    3000	    462582 ns/op	   51302 B/op	     359 allocs/op
-BenchmarkSerializeToStruct-12           	    3000	    424353 ns/op	   40820 B/op	     113 allocs/op
-BenchmarkSerializeToStructWithStd-12    	    3000	    441454 ns/op	   41410 B/op	     122 allocs/op
+BenchmarkSerialize-12                   	    3000	    478347 ns/op	   55781 B/op	     472 allocs/op
+BenchmarkSerialize-12                   	    3000	    454458 ns/op	   55661 B/op	     472 allocs/op
+BenchmarkSerialize-12                   	    3000	    451053 ns/op	   55754 B/op	     472 allocs/op
+BenchmarkSerialize-12                   	    3000	    460490 ns/op	   55794 B/op	     472 allocs/op
+BenchmarkSerialize-12                   	    3000	    456950 ns/op	   55737 B/op	     472 allocs/op
+BenchmarkSerialize-12                   	    3000	    457205 ns/op	   55766 B/op	     472 allocs/op
+BenchmarkSerializeWithStd-12            	    3000	    480344 ns/op	   51245 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-12            	    3000	    478355 ns/op	   51268 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-12            	    3000	    480349 ns/op	   51334 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-12            	    3000	    476558 ns/op	   51297 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-12            	    3000	    473053 ns/op	   51218 B/op	     359 allocs/op
+BenchmarkSerializeWithStd-12            	    3000	    476966 ns/op	   51263 B/op	     359 allocs/op
+BenchmarkSerializeToStruct-12           	    3000	    444147 ns/op	   40821 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-12           	    3000	    445147 ns/op	   40889 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-12           	    3000	    453472 ns/op	   40887 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-12           	    3000	    447687 ns/op	   40898 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-12           	    3000	    439757 ns/op	   40896 B/op	     113 allocs/op
+BenchmarkSerializeToStruct-12           	    3000	    441675 ns/op	   40894 B/op	     113 allocs/op
+BenchmarkSerializeToStructWithStd-12    	    3000	    472901 ns/op	   41342 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-12    	    3000	    474256 ns/op	   41290 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-12    	    3000	    475812 ns/op	   41403 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-12    	    3000	    478064 ns/op	   41412 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-12    	    3000	    471445 ns/op	   41399 B/op	     122 allocs/op
+BenchmarkSerializeToStructWithStd-12    	    3000	    461984 ns/op	   41366 B/op	     122 allocs/op
 PASS
-ok  	benchmark	5.373s
-go test -benchtime=3000x -bench=. -benchmem
-goos: darwin
-goarch: arm64
-pkg: benchmark
-BenchmarkSerialize-8                  	    3000	    201777 ns/op	   55719 B/op	     472 allocs/op
-BenchmarkSerializeWithStd-8           	    3000	    192962 ns/op	   51121 B/op	     359 allocs/op
-BenchmarkSerializeToStruct-8          	    3000	    142712 ns/op	   40791 B/op	     113 allocs/op
-BenchmarkSerializeToStructWithStd-8   	    3000	    166353 ns/op	   41264 B/op	     122 allocs/op
-PASS
-ok  	benchmark	2.128s
-go test -benchtime=3000x -bench=. -benchmem -cpu=6
-goos: darwin
-goarch: arm64
-pkg: benchmark
-BenchmarkSerialize-6                  	    3000	    192010 ns/op	   55742 B/op	     472 allocs/op
-BenchmarkSerializeWithStd-6           	    3000	    183672 ns/op	   51236 B/op	     359 allocs/op
-BenchmarkSerializeToStruct-6          	    3000	    151580 ns/op	   40787 B/op	     113 allocs/op
-BenchmarkSerializeToStructWithStd-6   	    3000	    173417 ns/op	   41240 B/op	     122 allocs/op
-PASS
-ok  	benchmark	2.116s
+ok  	benchmark	33.428s
